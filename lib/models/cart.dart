@@ -7,7 +7,7 @@ class Cart extends Equatable {
   const Cart({this.products = const <Product>[]});
 
   double deliveryFee(subTotal) {
-    if (subTotal <= 30) {
+    if (subTotal >= 30) {
       return 0.0;
     } else {
       return 10.0;
@@ -23,8 +23,22 @@ class Cart extends Equatable {
       return 'You have FREE delivery.';
     } else {
       double missing = 30.0 - subTotal;
-      return 'Add ${missing.toStringAsFixed(2)} for free delivery';
+      return 'Add \$${missing.toStringAsFixed(2)} for free delivery.';
     }
+  }
+
+  Map productQuantity(products) {
+    var quantity = Map();
+
+    products.forEach((product) {
+      if (!quantity.containsKey(product)) {
+        quantity[product] = 1;
+      } else {
+        quantity[product] += 1;
+      }
+    });
+
+    return quantity;
   }
 
   double get subTotal =>

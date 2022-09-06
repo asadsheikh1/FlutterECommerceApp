@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shop_app/blocs/cart/bloc/cart_bloc.dart';
+import 'package:shop_app/blocs/cart/cart_bloc.dart';
 import 'package:shop_app/widgets/cart_product_card.dart';
 
 class CartScreen extends StatelessWidget {
@@ -34,7 +34,7 @@ class CartScreen extends StatelessWidget {
                           ),
                           ElevatedButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, '/');
+                              Navigator.pushReplacementNamed(context, '/');
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.black,
@@ -59,9 +59,20 @@ class CartScreen extends StatelessWidget {
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
                         return CartProductCard(
-                            product: state.cart.products[index]);
+                          product: state.cart
+                              .productQuantity(state.cart.products)
+                              .keys
+                              .elementAt(index),
+                          quantity: state.cart
+                              .productQuantity(state.cart.products)
+                              .values
+                              .elementAt(index),
+                        );
                       },
-                      itemCount: state.cart.products.length,
+                      itemCount: state.cart
+                          .productQuantity(state.cart.products)
+                          .keys
+                          .length,
                     ),
                   ),
                   Column(

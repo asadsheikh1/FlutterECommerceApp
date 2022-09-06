@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shop_app/blocs/cart/bloc/cart_bloc.dart';
+import 'package:shop_app/blocs/cart/cart_bloc.dart';
 import 'package:shop_app/models/product.dart';
 
 class CartProductCard extends StatelessWidget {
   final Product product;
+  final int quantity;
 
-  const CartProductCard({super.key, required this.product});
+  const CartProductCard({
+    super.key,
+    required this.product,
+    required this.quantity,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +53,7 @@ class CartProductCard extends StatelessWidget {
                     icon: Icon(Icons.remove_circle),
                   ),
                   Text(
-                    '1',
+                    '${quantity}',
                     style: Theme.of(context).textTheme.headline5,
                   ),
                   IconButton(

@@ -5,11 +5,13 @@ import 'package:shop_app/screens/product_screen.dart';
 class ProductCard extends StatelessWidget {
   final Product product;
   final double widthFactor;
+  final bool? isWishlist;
 
   const ProductCard({
     Key? key,
     required this.product,
     this.widthFactor = 2.5,
+    this.isWishlist = false,
   }) : super(key: key);
 
   @override
@@ -88,6 +90,17 @@ class ProductCard extends StatelessWidget {
                         onPressed: () {},
                       ),
                     ),
+                    isWishlist!
+                        ? Expanded(
+                            child: IconButton(
+                              icon: Icon(
+                                Icons.delete,
+                                color: Colors.white,
+                              ),
+                              onPressed: () {},
+                            ),
+                          )
+                        : SizedBox(),
                   ],
                 ),
               ),

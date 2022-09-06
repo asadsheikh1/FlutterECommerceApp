@@ -7,13 +7,7 @@ class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Container(
-          color: Colors.red,
-          height: 100,
-          width: 100,
-        ),
-      ),
+      body: Center(),
     );
   }
 }

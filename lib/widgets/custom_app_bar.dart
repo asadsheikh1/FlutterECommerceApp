@@ -30,7 +30,11 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
       actions: [
         IconButton(
           onPressed: () {
-            Navigator.pushNamed(context, WishlistScreen.routeName);
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => WishlistScreen(),
+              ),
+            );
           },
           icon: Icon(Icons.favorite),
         ),

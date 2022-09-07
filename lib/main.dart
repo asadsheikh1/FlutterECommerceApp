@@ -5,6 +5,7 @@ import 'package:shop_app/blocs/wishlist/wishlist_bloc.dart';
 
 import 'package:shop_app/config/theme.dart';
 import 'package:shop_app/screens/catalog_screen.dart';
+import 'package:shop_app/screens/checkout_screen.dart';
 import 'package:shop_app/screens/product_screen.dart';
 import 'package:shop_app/screens/tabs_Screen.dart';
 import 'package:shop_app/screens/wishlist_screen.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
           WishlistScreen.routeName: (context) => WishlistScreen(),
           ProductScreen.routeName: (context) => ProductScreen(),
           CatalogScreen.routeName: (context) => CatalogScreen(),
+          CheckoutScreen.routeName: (context) => CheckoutScreen(),
         },
       ),
     );

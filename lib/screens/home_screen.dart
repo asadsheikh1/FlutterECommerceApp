@@ -15,19 +15,17 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          Container(
-            child: CarouselSlider(
-              options: CarouselOptions(
-                aspectRatio: 1.5,
-                viewportFraction: 0.9,
-                enlargeCenterPage: true,
-                enlargeStrategy: CenterPageEnlargeStrategy.height,
-                enableInfiniteScroll: false,
-              ),
-              items: Category.categories
-                  .map((category) => HeroCarousel(category: category))
-                  .toList(),
+          CarouselSlider(
+            options: CarouselOptions(
+              aspectRatio: 1.5,
+              viewportFraction: 0.9,
+              enlargeCenterPage: true,
+              enlargeStrategy: CenterPageEnlargeStrategy.height,
+              enableInfiniteScroll: false,
             ),
+            items: Category.categories
+                .map((category) => HeroCarousel(category: category))
+                .toList(),
           ),
           SectionTitle(
             title: 'RECOMMENDED',

@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:shop_app/blocs/cart/cart_bloc.dart';
 import 'package:shop_app/blocs/wishlist/wishlist_bloc.dart';
 import 'package:shop_app/models/product.dart';
 import 'package:shop_app/widgets/custom_app_bar.dart';
@@ -117,7 +118,7 @@ class ProductScreen extends StatelessWidget {
       bottomNavigationBar: BottomAppBar(
         elevation: 0,
         color: Colors.black,
-        child: Container(
+        child: SizedBox(
           height: 70,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -155,7 +156,18 @@ class ProductScreen extends StatelessWidget {
                   'ADD TO CART',
                   style: Theme.of(context).textTheme.headline3,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  context.read<CartBloc>().add(CartProductAdded(product!));
+                  Fluttertoast.showToast(
+                    msg: "Item added to cart.",
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.BOTTOM,
+                    timeInSecForIosWeb: 1,
+                    backgroundColor: Colors.grey,
+                    textColor: Colors.black,
+                    fontSize: 16.0,
+                  );
+                },
               ),
             ],
           ),

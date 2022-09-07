@@ -13,7 +13,7 @@ class HeroCarousel extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        if (this.product == null) {
+        if (product == null) {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) => CatalogScreen(

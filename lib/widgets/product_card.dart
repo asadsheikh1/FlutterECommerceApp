@@ -34,7 +34,7 @@ class ProductCard extends StatelessWidget {
       },
       child: Stack(
         children: [
-          Container(
+          SizedBox(
             height: 150,
             width: widthValue,
             child: Image.network(
@@ -101,7 +101,15 @@ class ProductCard extends StatelessWidget {
                                 context
                                     .read<CartBloc>()
                                     .add(CartProductAdded(product));
-                                print("object");
+                                Fluttertoast.showToast(
+                                  msg: "Item added to cart.",
+                                  toastLength: Toast.LENGTH_SHORT,
+                                  gravity: ToastGravity.BOTTOM,
+                                  timeInSecForIosWeb: 1,
+                                  backgroundColor: Colors.grey,
+                                  textColor: Colors.black,
+                                  fontSize: 16.0,
+                                );
                               },
                             ),
                           );

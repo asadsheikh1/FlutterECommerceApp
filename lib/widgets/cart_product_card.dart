@@ -53,7 +53,7 @@ class CartProductCard extends StatelessWidget {
                     icon: Icon(Icons.remove_circle),
                   ),
                   Text(
-                    '${quantity}',
+                    '$quantity',
                     style: Theme.of(context).textTheme.headline5,
                   ),
                   IconButton(

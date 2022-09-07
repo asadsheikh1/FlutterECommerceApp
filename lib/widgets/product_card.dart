@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+
 import 'package:shop_app/blocs/cart/cart_bloc.dart';
 import 'package:shop_app/blocs/wishlist/wishlist_bloc.dart';
 import 'package:shop_app/models/product.dart';

@@ -13,36 +13,40 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          CarouselSlider(
-            options: CarouselOptions(
-              aspectRatio: 1.5,
-              viewportFraction: 0.9,
-              enlargeCenterPage: true,
-              enlargeStrategy: CenterPageEnlargeStrategy.height,
-              enableInfiniteScroll: false,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            CarouselSlider(
+              options: CarouselOptions(
+                aspectRatio: 1.5,
+                viewportFraction: 0.9,
+                enlargeCenterPage: true,
+                enlargeStrategy: CenterPageEnlargeStrategy.height,
+                enableInfiniteScroll: false,
+              ),
+              items: Category.categories
+                  .map((category) => HeroCarousel(category: category))
+                  .toList(),
             ),
-            items: Category.categories
-                .map((category) => HeroCarousel(category: category))
-                .toList(),
-          ),
-          SectionTitle(
-            title: 'RECOMMENDED',
-          ),
-          ProductCarousel(
-            products: Product.products
-                .where((product) => product.isRecommended)
-                .toList(),
-          ),
-          SectionTitle(
-            title: 'MOST POPULAR',
-          ),
-          ProductCarousel(
-            products:
-                Product.products.where((product) => product.isPopular).toList(),
-          ),
-        ],
+            SectionTitle(
+              title: 'RECOMMENDED',
+            ),
+            ProductCarousel(
+              products: Product.products
+                  .where((product) => product.isRecommended)
+                  .toList(),
+            ),
+            SectionTitle(
+              title: 'MOST POPULAR',
+            ),
+            ProductCarousel(
+              products: Product.products
+                  .where((product) => product.isPopular)
+                  .toList(),
+            ),
+          ],
+        ),
       ),
     );
   }

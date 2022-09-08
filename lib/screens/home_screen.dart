@@ -1,5 +1,7 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:shop_app/models/category.dart';
 import 'package:shop_app/models/product.dart';
 import 'package:shop_app/widgets/hero_carousel.dart';
@@ -30,7 +32,7 @@ class HomeScreen extends StatelessWidget {
                   .toList(),
             ),
             SectionTitle(
-              title: 'RECOMMENDED',
+              title: AppLocalizations.of(context)!.recommended.toUpperCase(),
             ),
             ProductCarousel(
               products: Product.products

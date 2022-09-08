@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:shop_app/blocs/cart/cart_bloc.dart';
 import 'package:shop_app/blocs/wishlist/wishlist_bloc.dart';
 import 'package:shop_app/config/theme.dart';
+import 'package:shop_app/l10n/l10n.dart';
 import 'package:shop_app/screens/catalog_screen.dart';
 import 'package:shop_app/screens/checkout_screen.dart';
 import 'package:shop_app/screens/product_screen.dart';
@@ -28,6 +31,13 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'eCommerce App',
         theme: theme(),
+        supportedLocales: L10n.all,
+        localizationsDelegates: [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+        ],
         home: TabsScreen(),
         routes: {
           WishlistScreen.routeName: (context) => WishlistScreen(),
